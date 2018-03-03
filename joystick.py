@@ -9,8 +9,8 @@ zPin = 12
 
 def analogRead(channel):
 	bus.write_byte(address, cmd + channel)
-	value = bus.read_byte(channel)
-	value = bus.read_byte(channel)
+	value = bus.read_byte(address)
+	value = bus.read_byte(address)
 	return value
 
 def analogWrite(value):
@@ -39,5 +39,5 @@ if __name__ == '__main__':
 	setup()
 	try:
 		loop()
-	except KeyboardInterruption:
+	except KeyboardInterrupt:
 		destroy()

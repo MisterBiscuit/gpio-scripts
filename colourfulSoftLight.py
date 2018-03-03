@@ -13,6 +13,7 @@ ledBluePin = 11
 def analogRead(channel):
 	bus.write_byte(address, cmd + channel)
 	value = bus.read_byte(address)
+	value = bus.read_byte(address)
 	return value
 
 def analogWrite(value):
@@ -42,7 +43,7 @@ def loop():
 		pG.ChangeDutyCycle(vG * 100 / 255)
 		pB.ChangeDutyCycle(vB * 100 / 255)
 
-		print('ADC value: R: %d, G: %d, B: %d'%(vR, vG, vB))
+		print('ADC value: R: %d,\tG: %d,\tB: %d'%(vR, vG, vB))
 		time.sleep(0.01)
 
 def destroy():
@@ -51,7 +52,7 @@ def destroy():
 
 if __name__ == '__main__':
 	print('Program is starting...')
-	setup():
+	setup()
 	try:
 		loop()
 	except KeyboardInterrupt:
